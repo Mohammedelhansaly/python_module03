@@ -3,6 +3,7 @@ import time
 
 
 def game_event_stream(total_events):
+    """Simulates a stream of game events."""
     players = ["alice", "bob", "charlie", "dave"]
     events = [" killed monster", "found treasure", "leveled up"]
     for i in range(1, total_events + 1):
@@ -12,7 +13,8 @@ def game_event_stream(total_events):
         yield {"id": i, "player": player, "event": action, "level": level}
 
 
-def process_stream(total_events):
+def process_stream(total_events) -> None:
+    """Processes a stream of game events and performs analytics."""
     start_time = time.time()
     high_level_events = 0
     treasure_events = 0
@@ -40,19 +42,21 @@ def process_stream(total_events):
     print(f"Processing time: {end_time - start_time:.3f} seconds")
 
 
-def fibonacci(n):
+def fibonacci(n) -> iter:
+    """Generates the first n Fibonacci numbers."""
     a, b = 0, 1
     for _ in range(n):
         yield a
         a, b = b, a + b
 
 
-def prime(n):
+def prime(n) -> iter:
+    """Generates the first n prime numbers."""
     num = 2
     count = 0
     while count < n:
         is_prime = True
-        for i in range(2, int(num**0.5) + 1):
+        for i in range(2, int(num / 2) + 1):
             if num % i == 0:
                 is_prime = False
                 break
@@ -62,7 +66,9 @@ def prime(n):
         num += 1
 
 
-def main():
+def main() -> None:
+    """Main function to run the stream processing and
+       generator demonstrations."""
     total_events = 1000
     process_stream(total_events)
     print("\n=== Generator Demonstration ===")

@@ -1,6 +1,6 @@
 class Player:
     """Class to represent a player and their achievements."""
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         """Initialize the player with a name
         and an empty set of achievements."""
         self.name = name

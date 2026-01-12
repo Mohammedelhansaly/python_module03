@@ -1,11 +1,12 @@
 class Player:
     """Class to manage a player's inventory in a game."""
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         """Initialize the player with a name and an empty inventory."""
         self.name = name
         self.inventory = {}
 
-    def create_inventory(self, type, rarity, value, quantity) -> dict:
+    def create_inventory(self, type: str, rarity: str,
+                         value: int, quantity: int) -> dict:
         """Create an inventory item with specified attributes."""
         return {
             'type': type,
@@ -14,7 +15,8 @@ class Player:
             'quantity': quantity
         }
 
-    def add_item(self, item_name, type, rarity, value, quantity) -> None:
+    def add_item(self, item_name: str, type: str,
+                 rarity: str, value: int, quantity: int) -> None:
         """Add an item to the player's inventory."""
         if item_name in self.inventory:
             self.inventory[item_name]['quantity'] += quantity
